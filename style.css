@@ -101,14 +101,14 @@ nav{
 .container2{
     display: grid;
     grid-template-columns: repeat(5,1fr);
-    grid-template-rows: repeat(5,1fr);
+    grid-template-rows: repeat(3,1fr);
 }
 .pp1{
     grid-area: 2/2/3/4;
 }
 .pp12{
     color: #ffffff;
-    font-size: 5vh;
+    font-size: 6vh;
 
 
 }
@@ -134,10 +134,119 @@ nav{
 }
 .f1:hover{
     background-color: #C778DD;
+    border-color: #744083;
 }
 .item:hover{
     color: #ffffff;
 }
+.g3{
+    /* background-color: aliceblue; */
+    display: flex;
+    color: white;
+    justify-content: center;
+}
+.pup{
+    color: #C778DD;
+}
+.svg2{
+    color: #C778DD;
+    padding-left: 10px;
+}
+.sk1{
+    font-size: 6vh;
+    margin-right: 51vw;
+    margin-top: 10vh;
+    
+}
+.g41{
+    display: flex;
+    /* background-color: hsl(0, 6%, 29%); */
+    width: 80vw;
+    margin: auto;
+    justify-content: space-around;
+    font-size: 3vh;
+  
+}
+.g4{
+    margin-top: 100px;
+}
+.lmao{
+    color: #ffffff;
+    border: 1px solid #ABB2BF;
+    border-radius: 7px;
+    padding: 5px; 
+    
+}
+.lang{
+    border-top: 1px solid #ABB2BF;
+    margin-top: 5px;
+    padding-top:5px ; 
+    color: #ABB2BF; 
+}
+.g5{
+    padding-top: 100px;
+    display: flex;
+    width: 80vw;
+    margin: auto;
+}
+.g51{
+    margin-left: 10vw;
+    font-size: 6vh;
+    color: #ffffff;
+}
+.pup2{
+    color: #C778DD;
+}
+.g6{
+    display: flex;
+    width: 70vw;
+    margin: auto;
+    margin-top: 44px;
+}
+.g61{
+    font-size: 4vh;
+    color: #ABB2BF;
+
+}
+.g7{
+    
+    color: #ffffff;
+    display: flex;
+    font-size: 6vh;
+    width:58vw;
+    margin: auto;
+    margin-top: 50px;
+}
+.g71{
+    color: #C778DD;
+}
+.svg3{
+    color: #C778DD;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.g8{
+    display: flex;
+    background-color: #C778DD;
+    /* width: 60vw; */
+    margin: auto;
+    margin-top: 50px;
+
+}
+.g81{
+    /* background-color: #ABB2BF; */
+    font-size: 4vh;
+    color: #ABB2BF;
+}
+
+
+
+
+
+
+
+
+
 @media only screen and (max-width: 600px) {
   body{
   }
@@ -193,4 +302,27 @@ justify-items: center;
     grid-column: 2;
     grid-row: 5;
 }
+.sk1{
+    margin: 0;
+    margin-top: 50px;
+}
+.g41{
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    gap: 30px;
+}
+.g5{
+    /* background-color: #744083; */
+    justify-content: center;
+    margin: 0%;
+
+}
+.g7{
+    flex-direction: column;
+
+    width: auto;
+    text-align: center;
+}
+
 }
