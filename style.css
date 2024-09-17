@@ -270,8 +270,7 @@ nav{
 
 
 @media only screen and (max-width: 600px) {
-  body{
-  }
+
   nav {
     flex-direction: column;
     align-items: center;
@@ -355,8 +354,10 @@ justify-items: center;
     /* background-color: #ABB2BF; */
     padding-left: 10vw;
     padding-top: 25px;
-    padding-right:10vw;
 
 
+}
+.g91{
+    padding-right: 10vw;
 }
 }
