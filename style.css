@@ -352,12 +352,12 @@ justify-items: center;
 }
 .g9{
     /* background-color: #ABB2BF; */
-    padding-left: 10vw;
+    display: flex;
+    width: 100vw;
     padding-top: 25px;
+    justify-content: center;
 
 
 }
-.g91{
-    padding-right: 5vw;
-}
+
 }
