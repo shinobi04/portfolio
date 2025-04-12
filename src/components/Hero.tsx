@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaXTwitter, FaEnvelope } from "react-icons/fa6";
 import Link from "next/link";
 
 const AnimatedText = ({ text }: { text: string }) => {
@@ -117,7 +117,7 @@ export default function Hero() {
           rel="noopener noreferrer"
           className="text-white hover:text-purple-400 transition-colors"
         >
-          <FaTwitter size={28} />
+          <FaXTwitter size={28} />
           <span className="sr-only">Twitter</span>
         </Link>
         <Link

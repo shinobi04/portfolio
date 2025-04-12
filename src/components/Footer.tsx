@@ -5,11 +5,11 @@ import Link from "next/link";
 import {
   FaGithub,
   FaLinkedin,
-  FaTwitter,
+  FaXTwitter,
   FaInstagram,
   FaDribbble,
   FaEnvelope,
-} from "react-icons/fa";
+} from "react-icons/fa6";
 
 export default function Footer() {
   const socialIcons = [
@@ -24,9 +24,9 @@ export default function Footer() {
       label: "LinkedIn",
     },
     {
-      icon: <FaTwitter size={24} />,
+      icon: <FaXTwitter size={24} />,
       href: "https://x.com/anurag040904",
-      label: "Twitter",
+      label: "X (Twitter)",
     },
   ];
 
