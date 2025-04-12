@@ -75,7 +75,7 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" className="py-24 px-6 max-w-6xl mx-auto">
+    <section id="experience" className="py-24 pb-12 px-6 max-w-6xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -209,7 +209,7 @@ export default function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
-            className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+            className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
           >
             <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.5)]">
               <svg

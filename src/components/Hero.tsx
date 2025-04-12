@@ -71,7 +71,7 @@ export default function Hero() {
           <AnimatedText text="Anurag" />
         </h1>
         <h3 className="text-2xl md:text-4xl font-medium text-gray-300 text-center">
-          <AnimatedText text="Full Stack Developer & UI/UX Designer" />
+          <AnimatedText text="Mobile App Developer & UI/UX Designer" />
         </h3>
       </div>
 
@@ -94,7 +94,7 @@ export default function Hero() {
         transition={{ delay: 0.8, duration: 0.8 }}
       >
         <Link
-          href="https://github.com/yourusername"
+          href="https://github.com/shinobi04"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-purple-400 transition-colors"
@@ -103,7 +103,7 @@ export default function Hero() {
           <span className="sr-only">GitHub</span>
         </Link>
         <Link
-          href="https://linkedin.com/in/yourusername"
+          href="https://www.linkedin.com/in/anurag-kumar-singh-56718427b/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-purple-400 transition-colors"
@@ -112,7 +112,7 @@ export default function Hero() {
           <span className="sr-only">LinkedIn</span>
         </Link>
         <Link
-          href="https://twitter.com/yourusername"
+          href="https://x.com/anurag040904"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-purple-400 transition-colors"
@@ -121,7 +121,7 @@ export default function Hero() {
           <span className="sr-only">Twitter</span>
         </Link>
         <Link
-          href="mailto:your.email@example.com"
+          href="mailto:anuragkrsingh3456@gmail.com"
           className="text-white hover:text-purple-400 transition-colors"
         >
           <FaEnvelope size={28} />
