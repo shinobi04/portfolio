@@ -143,10 +143,10 @@ export default function Hero() {
           View My Work
         </Link>
         <Link
-          href="#contact"
+          href="mailto:anuragkrsingh3456@gmail.com"
           className="px-10 py-4 border-2 border-white text-white font-bold rounded-lg text-lg transition-all duration-300 hover:bg-white hover:text-black"
         >
-          Contact Me
+          Get In Touch
         </Link>
       </motion.div>
     </motion.section>
