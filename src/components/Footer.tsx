@@ -2,14 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaXTwitter,
-  FaInstagram,
-  FaDribbble,
-  FaEnvelope,
-} from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   const socialIcons = [

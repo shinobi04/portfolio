@@ -81,9 +81,9 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 1 }}
       >
-        I'm a passionate developer focused on creating intuitive, responsive,
-        and beautiful web applications. I love turning complex problems into
-        simple, elegant solutions.
+        I&apos;m a passionate developer focused on creating intuitive,
+        responsive, and beautiful web applications. I love turning complex
+        problems into simple, elegant solutions.
       </motion.p>
 
       {/* Social Media Links */}

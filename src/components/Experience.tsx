@@ -57,21 +57,10 @@ export default function Experience() {
 
   const [activeIndices, setActiveIndices] = useState<number[]>([]);
 
-  const isActive = (index: number) => activeIndices.includes(index);
-
   const toggleItem = (index: number) => {
     setActiveIndices((prev) =>
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
     );
-  };
-
-  // Now toggleAllItems can safely access educationPath
-  const toggleAllItems = () => {
-    if (activeIndices.length === educationPath.length) {
-      setActiveIndices([]);
-    } else {
-      setActiveIndices(educationPath.map((_, i) => i));
-    }
   };
 
   return (

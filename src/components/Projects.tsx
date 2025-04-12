@@ -8,7 +8,6 @@ import {
   FaStar,
   FaCodeBranch,
 } from "react-icons/fa";
-import Link from "next/link";
 
 // Type definitions for GitHub projects
 interface Repository {
@@ -78,7 +77,7 @@ export default function Projects() {
         </h2>
         <p className="text-white/80 max-w-2xl mx-auto">
           Explore my recent GitHub projects. These repositories showcase my
-          skills, interests and the technologies I've been working with
+          skills, interests and the technologies I&apos;ve been working with
           recently.
         </p>
       </motion.div>
