@@ -42,13 +42,13 @@ const AnimatedText = ({ text }: { text: string }) => {
       variants={container}
       initial="hidden"
       animate="visible"
-      className="flex flex-wrap"
+      className="flex flex-wrap justify-center overflow-visible"
     >
       {words.map((word, index) => (
         <motion.span
           variants={child}
           key={index}
-          className="mr-2 bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text"
+          className="mr-2 bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text overflow-visible"
         >
           {word}
         </motion.span>
@@ -61,22 +61,22 @@ export default function Hero() {
   return (
     <motion.section
       id="home"
-      className="text-center px-8 py-24 md:py-32 mx-auto max-w-4xl relative z-10"
+      className="text-center px-8 py-24 md:py-32 mx-auto max-w-4xl relative z-10 flex flex-col items-center justify-center"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
     >
-      <div className="mb-6">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+      <div className="mb-6 w-full flex flex-col items-center">
+        <h1 className="text-5xl md:text-7xl font-bold mb-4 text-center leading-normal">
           <AnimatedText text="Anurag" />
         </h1>
-        <h3 className="text-2xl md:text-3xl font-medium text-gray-300">
+        <h3 className="text-2xl md:text-4xl font-medium text-gray-300 text-center">
           <AnimatedText text="Full Stack Developer & UI/UX Designer" />
         </h3>
       </div>
 
       <motion.p
-        className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8"
+        className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 1 }}
@@ -138,13 +138,13 @@ export default function Hero() {
       >
         <Link
           href="#projects"
-          className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg text-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] hover:scale-105 relative overflow-hidden z-10 before:content-[''] before:absolute before:top-0 before:left-[-100%] before:w-full before:h-full before:bg-white/15 before:transform before:skew-x-[-20deg] before:transition-all before:duration-500 before:z-0 hover:before:left-[100%]"
+          className="px-10 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg text-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] hover:scale-105"
         >
           View My Work
         </Link>
         <Link
           href="#contact"
-          className="px-8 py-3 border-2 border-white text-white font-bold rounded-lg text-lg transition-all duration-300 hover:bg-white hover:text-black"
+          className="px-10 py-4 border-2 border-white text-white font-bold rounded-lg text-lg transition-all duration-300 hover:bg-white hover:text-black"
         >
           Contact Me
         </Link>
