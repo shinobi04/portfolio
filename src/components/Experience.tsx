@@ -174,12 +174,7 @@ export default function Experience() {
                   </div>
 
                   <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{
-                      height: isActive(index) ? "auto" : 0,
-                      opacity: isActive(index) ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
+                    initial={{ height: "auto", opacity: 1 }}
                     className="overflow-hidden"
                   >
                     <ul className="list-none space-y-2 mb-4 text-white/80 pl-1">
@@ -187,10 +182,7 @@ export default function Experience() {
                         <motion.li
                           key={i}
                           initial={{ opacity: 0, x: -10 }}
-                          animate={{
-                            opacity: isActive(index) ? 1 : 0,
-                            x: isActive(index) ? 0 : -10,
-                          }}
+                          animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.3, delay: i * 0.1 }}
                           className="flex items-start"
                         >
@@ -207,10 +199,7 @@ export default function Experience() {
                         <motion.span
                           key={i}
                           initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{
-                            opacity: isActive(index) ? 1 : 0,
-                            scale: isActive(index) ? 1 : 0.8,
-                          }}
+                          animate={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.2, delay: 0.3 + i * 0.05 }}
                           className={`px-3 py-1 text-xs rounded-full bg-gradient-to-r ${edu.color
                             .replace("500", "500/20")
@@ -222,24 +211,7 @@ export default function Experience() {
                     </div>
                   </motion.div>
 
-                  {/* Click to expand indicator */}
-                  <motion.div
-                    animate={{
-                      rotate: isActive(index) ? 180 : 0,
-                    }}
-                    className="mt-2 flex justify-center cursor-pointer"
-                    onClick={() => toggleItem(index)}
-                  >
-                    <span
-                      className={`text-sm ${
-                        isActive(index) ? "text-white/80" : "text-white/40"
-                      }`}
-                    >
-                      {isActive(index)
-                        ? "Click to collapse"
-                        : "Click to expand"}
-                    </span>
-                  </motion.div>
+                  {/* Removed collapse/expand button and indicator */}
                 </motion.div>
               </div>
             );
@@ -273,24 +245,6 @@ export default function Experience() {
           </motion.div>
         </div>
       </div>
-
-      <motion.div
-        className="text-center mt-20"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        viewport={{ once: true }}
-      >
-        <button
-          onClick={toggleAllItems}
-          className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-medium
-          hover:shadow-[0_0_15px_rgba(168,85,247,0.5)] transition-all duration-300 hover:scale-105"
-        >
-          {activeIndices.length === educationPath.length
-            ? "Collapse All"
-            : "Expand All"}
-        </button>
-      </motion.div>
     </section>
   );
 }
