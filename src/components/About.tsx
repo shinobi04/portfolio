@@ -33,7 +33,7 @@ export default function About() {
             <h3 className="text-2xl font-semibold text-white mb-4">Who I Am</h3>
             <p className="text-white/70 mb-4">
               I'm a passionate app developer currently pursuing B.Tech in
-              Computer Science at USICT, Delhi. I specialize in creating
+              Information Technology at USICT, Delhi. I specialize in creating
               beautiful, responsive, and user-friendly mobile applications using
               modern frameworks.
             </p>
