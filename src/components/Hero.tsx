@@ -66,7 +66,7 @@ export default function Hero() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
     >
-      <div className="mb-6 w-full flex flex-col items-center">
+      <div className="mb-6 w-full flex flex-col items-center mt-10 md:mt-16">
         <h1 className="text-5xl md:text-7xl font-bold mb-4 text-center leading-normal">
           <AnimatedText text="Anurag" />
         </h1>
