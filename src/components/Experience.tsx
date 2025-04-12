@@ -55,12 +55,9 @@ export default function Experience() {
     },
   ];
 
-  const [activeIndices, setActiveIndices] = useState<number[]>([]);
-
   const toggleItem = (index: number) => {
-    setActiveIndices((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
-    );
+    // Function kept for future use if needed
+    // Currently inactive since there's no collapse/expand functionality
   };
 
   return (

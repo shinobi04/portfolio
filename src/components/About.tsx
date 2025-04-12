@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export default function About() {
   return (
@@ -32,13 +31,13 @@ export default function About() {
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-purple-500/40 transition-all duration-300">
             <h3 className="text-2xl font-semibold text-white mb-4">Who I Am</h3>
             <p className="text-white/70 mb-4">
-              I'm a passionate app developer currently pursuing B.Tech in
+              I&apos;m a passionate app developer currently pursuing B.Tech in
               Information Technology at USICT, Delhi. I specialize in creating
               beautiful, responsive, and user-friendly mobile applications using
               modern frameworks.
             </p>
             <p className="text-white/70">
-              When I'm not coding, I enjoy exploring new technologies,
+              When I&apos;m not coding, I enjoy exploring new technologies,
               participating in hackathons, and contributing to open-source
               projects.
             </p>
