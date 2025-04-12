@@ -1,6 +1,5 @@
 "use client";
 
-// Removed unused useState import
 import { motion } from "framer-motion";
 
 interface EducationEntry {
