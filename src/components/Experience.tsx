@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+// Removed unused useState import
 import { motion } from "framer-motion";
 
 interface EducationEntry {
@@ -58,6 +58,7 @@ export default function Experience() {
   const toggleItem = (index: number) => {
     // Function kept for future use if needed
     // Currently inactive since there's no collapse/expand functionality
+    void index; // Explicitly void the parameter to avoid unused variable error
   };
 
   return (
