@@ -9,7 +9,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
 
-  const navItems = ["Home", "Projects", "About", "Experience"];
+  const navItems = ["Home", "Projects", "Experience", "About"];
 
   return (
     <motion.header
