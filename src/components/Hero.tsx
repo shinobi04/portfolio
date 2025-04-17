@@ -144,9 +144,25 @@ export default function Hero() {
         </Link>
         <Link
           href="mailto:anuragkrsingh3456@gmail.com"
-          className="px-10 py-4 border-2 border-white text-white font-bold rounded-lg text-lg transition-all duration-300 hover:bg-white hover:text-black"
+          className="px-10 py-4 border-0 text-white font-bold rounded-lg text-lg transition-all duration-300 relative"
         >
-          Get In Touch
+          <span className="relative z-10">Get In Touch</span>
+          <motion.span
+            className="absolute inset-0 rounded-lg border-2 border-purple-500"
+            animate={{
+              borderColor: ["#a855f7", "#ec4899", "#a855f7"],
+              boxShadow: [
+                "0 0 5px rgba(168, 85, 247, 0.5)",
+                "0 0 10px rgba(236, 72, 153, 0.5)",
+                "0 0 5px rgba(168, 85, 247, 0.5)",
+              ],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
         </Link>
       </motion.div>
     </motion.section>
