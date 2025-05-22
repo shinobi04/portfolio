@@ -4,7 +4,13 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaXTwitter, FaEnvelope } from "react-icons/fa6";
 import Link from "next/link";
 
-const AnimatedText = ({ text }: { text: string }) => {
+const AnimatedText = ({
+  text,
+  gradient = "from-purple-400 via-pink-600 to-indigo-500",
+}: {
+  text: string;
+  gradient?: string;
+}) => {
   const words = text.split(" ");
 
   // Fixed container and child variants to avoid passing functions directly
@@ -48,7 +54,7 @@ const AnimatedText = ({ text }: { text: string }) => {
         <motion.span
           variants={child}
           key={index}
-          className="mr-2 bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text overflow-visible"
+          className={`mr-2 bg-gradient-to-r ${gradient} text-transparent bg-clip-text overflow-visible`}
         >
           {word}
         </motion.span>
@@ -61,24 +67,47 @@ export default function Hero() {
   return (
     <motion.section
       id="home"
-      className="text-center px-8 py-24 md:py-32 mx-auto max-w-4xl relative z-10 flex flex-col items-center justify-center"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      className="text-center px-8 py-24 md:py-36 mx-auto max-w-4xl relative z-10 flex flex-col items-center justify-center min-h-screen"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
     >
-      <div className="mb-6 w-full flex flex-col items-center mt-10 md:mt-16">
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 text-center leading-normal">
-          <AnimatedText text="Anurag" />
+      {/* Small decorative elements */}
+      <motion.div
+        className="absolute top-1/4 left-0 w-24 h-24 bg-gradient-to-r from-purple-500/20 to-transparent rounded-full blur-xl"
+        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 8, repeat: Infinity }}
+      />
+      <motion.div
+        className="absolute bottom-1/3 right-10 w-16 h-16 bg-gradient-to-l from-pink-500/20 to-transparent rounded-full blur-xl"
+        animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.5, 0.2] }}
+        transition={{ duration: 10, repeat: Infinity, delay: 1 }}
+      />
+
+      <motion.div
+        className="mb-6 w-full flex flex-col items-center mt-10 md:mt-16"
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.2 }}
+      >
+        <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4 text-center leading-normal tracking-tight">
+          <AnimatedText
+            text="Anurag"
+            gradient="from-purple-600 via-fuchsia-500 to-pink-500"
+          />
         </h1>
-        <h3 className="text-2xl md:text-4xl font-medium text-gray-300 text-center">
-          <AnimatedText text="Mobile App Developer & UI/UX Designer" />
+        <h3 className="text-2xl md:text-4xl font-medium text-gray-300 text-center mt-4">
+          <AnimatedText
+            text="Mobile App Developer & UI/UX Designer"
+            gradient="from-purple-600 via-fuchsia-500 to-pink-500"
+          />
         </h3>
-      </div>
+      </motion.div>
 
       <motion.p
-        className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 text-center leading-relaxed"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 1 }}
       >
         I&apos;m a passionate developer focused on creating intuitive,
@@ -93,40 +122,63 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.8 }}
       >
-        <Link
-          href="https://github.com/shinobi04"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white hover:text-purple-400 transition-colors"
-        >
-          <FaGithub size={28} />
-          <span className="sr-only">GitHub</span>
-        </Link>
-        <Link
-          href="https://www.linkedin.com/in/anurag-kumar-singh-56718427b/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white hover:text-purple-400 transition-colors"
-        >
-          <FaLinkedin size={28} />
-          <span className="sr-only">LinkedIn</span>
-        </Link>
-        <Link
-          href="https://x.com/anurag040904"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white hover:text-purple-400 transition-colors"
-        >
-          <FaXTwitter size={28} />
-          <span className="sr-only">Twitter</span>
-        </Link>
-        <Link
-          href="mailto:anuragkrsingh3456@gmail.com"
-          className="text-white hover:text-purple-400 transition-colors"
-        >
-          <FaEnvelope size={28} />
-          <span className="sr-only">Email</span>
-        </Link>
+        <motion.div whileHover={{ y: -3 }} whileTap={{ scale: 0.95 }}>
+          <Link
+            href="https://github.com/shinobi04"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-purple-400 transition-colors relative group flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:border-purple-400/30 hover:bg-white/10"
+            aria-label="GitHub"
+          >
+            <FaGithub size={22} />
+            <span className="absolute -bottom-8 opacity-0 group-hover:opacity-100 text-xs bg-black/80 text-white px-2 py-1 rounded transition-opacity">
+              GitHub
+            </span>
+          </Link>
+        </motion.div>
+
+        <motion.div whileHover={{ y: -3 }} whileTap={{ scale: 0.95 }}>
+          <Link
+            href="https://www.linkedin.com/in/anurag-kumar-singh-56718427b/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-purple-400 transition-colors relative group flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:border-purple-400/30 hover:bg-white/10"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin size={22} />
+            <span className="absolute -bottom-8 opacity-0 group-hover:opacity-100 text-xs bg-black/80 text-white px-2 py-1 rounded transition-opacity">
+              LinkedIn
+            </span>
+          </Link>
+        </motion.div>
+
+        <motion.div whileHover={{ y: -3 }} whileTap={{ scale: 0.95 }}>
+          <Link
+            href="https://x.com/anurag040904"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-pink-400 transition-colors relative group flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:border-pink-400/30 hover:bg-white/10"
+            aria-label="Twitter"
+          >
+            <FaXTwitter size={20} />
+            <span className="absolute -bottom-8 opacity-0 group-hover:opacity-100 text-xs bg-black/80 text-white px-2 py-1 rounded transition-opacity">
+              Twitter
+            </span>
+          </Link>
+        </motion.div>
+
+        <motion.div whileHover={{ y: -3 }} whileTap={{ scale: 0.95 }}>
+          <Link
+            href="mailto:anuragkrsingh3456@gmail.com"
+            className="text-white hover:text-pink-400 transition-colors relative group flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:border-pink-400/30 hover:bg-white/10"
+            aria-label="Email"
+          >
+            <FaEnvelope size={20} />
+            <span className="absolute -bottom-8 opacity-0 group-hover:opacity-100 text-xs bg-black/80 text-white px-2 py-1 rounded transition-opacity">
+              Email
+            </span>
+          </Link>
+        </motion.div>
       </motion.div>
 
       {/* Call to Action Buttons */}
@@ -138,13 +190,13 @@ export default function Hero() {
       >
         <Link
           href="#projects"
-          className="px-10 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg text-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] hover:scale-105"
+          className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-lg text-base transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] hover:scale-105"
         >
           View My Work
         </Link>
         <Link
           href="mailto:anuragkrsingh3456@gmail.com"
-          className="px-10 py-4 border-0 text-white font-bold rounded-lg text-lg transition-all duration-300 relative"
+          className="px-8 py-3 border-0 text-white font-medium rounded-lg text-base transition-all duration-300 relative"
         >
           <span className="relative z-10">Get In Touch</span>
           <motion.span

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { inter } from "./fonts";
 import "./globals.css";
+import Loader from "@/components/Loader";
+import KonamiEasterEgg from "@/components/KonamiEasterEgg";
+import ThemeScript from "@/components/ThemeScript";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +17,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Personal portfolio website",
+  title: "Anurag - Mobile App Developer",
+  description:
+    "Personal portfolio showcasing mobile app development and UI/UX design work",
+  keywords:
+    "mobile app developer, UI/UX design, portfolio, React, Flutter, Kotlin",
 };
 
 export default function RootLayout({
@@ -29,6 +35,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
+        <Loader />
+        <KonamiEasterEgg />
+        <ThemeScript />
         {children}
       </body>
     </html>
