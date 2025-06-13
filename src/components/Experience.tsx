@@ -106,9 +106,7 @@ export default function Experience() {
               />
             </svg>
           </div>
-          <span className="ml-2 text-green-400 font-medium">
-            Academic Start
-          </span>
+          <span className="ml-2 text-green-400 font-medium">Academic</span>
         </motion.div>
 
         {/* Start flag - for desktop - moved to top */}
