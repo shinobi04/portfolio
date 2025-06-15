@@ -13,7 +13,6 @@ interface EducationEntry {
 }
 
 export default function Experience() {
-  // Define educationPath first before referencing it in any functions
   const educationPath: EducationEntry[] = [
     {
       title: "B.Tech in Information Technology",
