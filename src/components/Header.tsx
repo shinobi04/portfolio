@@ -17,6 +17,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const [railHovered, setRailHovered] = useState(false);
 
   const navItems = ["Home", "Projects", "Experience", "About"];
 
@@ -35,7 +36,6 @@ export default function Header() {
           const sectionTop = rect.top + scrollPosition;
           const sectionBottom = sectionTop + rect.height;
 
-          // Check if section is in view (considering header offset)
           if (
             scrollPosition + 100 >= sectionTop &&
             scrollPosition + 100 < sectionBottom
@@ -44,7 +44,6 @@ export default function Header() {
             break;
           }
 
-          // For the last section, if we're near the bottom
           if (
             sectionId === sections[sections.length - 1] &&
             scrollPosition + windowHeight >=
@@ -59,10 +58,8 @@ export default function Header() {
       setScrolled(scrollPosition > 120);
     };
 
-    // Set initial active section
     handleScroll();
 
-    // Add scroll event listener with throttling
     let ticking = false;
     const throttledHandleScroll = () => {
       if (!ticking) {
@@ -76,7 +73,6 @@ export default function Header() {
 
     window.addEventListener("scroll", throttledHandleScroll);
 
-    // Cleanup
     return () => window.removeEventListener("scroll", throttledHandleScroll);
   }, []);
 
@@ -129,7 +125,6 @@ export default function Header() {
           Anurag
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center">
           {navItems.map((item) => (
             <Link
@@ -144,7 +139,6 @@ export default function Header() {
               }}
             >
               {item}
-              {/* Animated underline */}
               <span
                 className={`absolute -bottom-1 left-1/2 h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 transition-all duration-500 ease-out transform -translate-x-1/2 ${
                   activeLink === item.toLowerCase()
@@ -152,7 +146,6 @@ export default function Header() {
                     : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
                 }`}
               />
-              {/* Glow effect for active state */}
               {activeLink === item.toLowerCase() && (
                 <span className="absolute -bottom-1 left-1/2 w-full h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 blur-sm opacity-60 transform -translate-x-1/2 animate-pulse" />
               )}
@@ -166,8 +159,6 @@ export default function Header() {
             Get In Touch
           </a>
         </nav>
-
-        {/* Mobile menu button */}
         <div className="md:hidden">
           <button
             className="p-1.5 text-white rounded-lg bg-white/10 backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-all duration-300 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]"
@@ -177,8 +168,6 @@ export default function Header() {
             {mobileMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
           </button>
         </div>
-
-        {/* Mobile menu */}
         {mobileMenuOpen && (
           <motion.div
             className="absolute top-full left-0 right-0 bg-transparent backdrop-blur-3xl backdrop-saturate-[300%] mt-4 p-4 rounded-lg md:hidden border border-white/20 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)] before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-b before:from-white/10 before:to-transparent before:pointer-events-none z-[60]"
@@ -215,25 +204,36 @@ export default function Header() {
         )}
       </motion.header>
 
-      {/* Compact right-side icon navbar (desktop only) */}
       <motion.aside
         className="hidden md:flex fixed right-6 top-1/2 -translate-y-1/2 z-[60]"
         initial={{ x: 40, opacity: 0 }}
         animate={scrolled ? { x: 0, opacity: 1 } : { x: 40, opacity: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
+        onMouseEnter={() => setRailHovered(true)}
+        onMouseLeave={() => setRailHovered(false)}
       >
         <div className="relative bg-transparent p-2">
-          <motion.ul className="relative flex flex-col items-center justify-center pl-0">
-            {navItems
-              .filter((item) => item.toLowerCase() === activeLink)
-              .map((item) => {
-                const key = item.toLowerCase();
-                const Icon = iconMap[key] ?? FaHome;
-                return (
-                  <motion.li
-                    key={key}
-                    className="relative group flex items-center justify-center w-12 h-12"
-                  >
+          <motion.ul
+            layout
+            className="relative flex flex-col items-center justify-center pl-0"
+          >
+            {navItems.map((item) => {
+              const key = item.toLowerCase();
+              const Icon = iconMap[key] ?? FaHome;
+              const isActive = activeLink === key;
+              return (
+                <motion.li
+                  layout
+                  key={key}
+                  className={`relative group flex items-center justify-center w-12 h-12 my-1 transition-all duration-200 ${
+                    isActive
+                      ? "opacity-100 scale-100"
+                      : railHovered
+                      ? "opacity-100 scale-100 pointer-events-auto"
+                      : "opacity-0 scale-95 pointer-events-none"
+                  }`}
+                >
+                  {isActive && (
                     <motion.span
                       layoutId="active-pill"
                       className="absolute inset-0 rounded-full bg-purple-500/80 border border-white/20 shadow-[0_0_18px_rgba(168,85,247,0.45)]"
@@ -244,22 +244,26 @@ export default function Header() {
                         mass: 0.6,
                       }}
                     />
-                    <motion.button
-                      aria-label={item}
-                      onClick={() => handleNavClick(item)}
-                      className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full text-white"
-                      whileHover={{ scale: 1.06 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Icon size={18} />
-                    </motion.button>
-                    {/* Tooltip */}
-                    <span className="pointer-events-none absolute right-full mr-2 top-1/2 -translate-y-1/2 text-[11px] tracking-wide text-white/90 bg-black/70 backdrop-blur-md px-2 py-1 rounded-md opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all origin-right shadow-md border border-white/10">
-                      {item}
-                    </span>
-                  </motion.li>
-                );
-              })}
+                  )}
+                  <motion.button
+                    aria-label={item}
+                    onClick={() => handleNavClick(item)}
+                    className={`relative z-10 flex items-center justify-center w-12 h-12 rounded-full border transition-colors duration-200 ${
+                      isActive
+                        ? "text-white border-transparent"
+                        : "text-white/90 border-white/10 bg-white/10 hover:bg-white/15"
+                    }`}
+                    whileHover={{ scale: 1.06 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Icon size={18} />
+                  </motion.button>
+                  <span className="pointer-events-none absolute right-full mr-2 top-1/2 -translate-y-1/2 text-[11px] tracking-wide text-white/90 bg-black/70 backdrop-blur-md px-2 py-1 rounded-md opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all origin-right shadow-md border border-white/10">
+                    {item}
+                  </span>
+                </motion.li>
+              );
+            })}
           </motion.ul>
         </div>
       </motion.aside>
