@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import AnimatedBackground from "@/components/AnimatedBackground";
+import DotsBackground from "@/components/DotsBackground";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen relative overflow-hidden">
-      <AnimatedBackground />
+      <DotsBackground />
       <Header />
       <Hero />
       <Projects />
