@@ -27,7 +27,11 @@ const FALLBACK_COLORS: Record<string, string> = {
   text: "#cdd6f4",
 };
 
-export default function DotsBackground({ className = "" }: { className?: string }) {
+export default function DotsBackground({
+  className = "",
+}: {
+  className?: string;
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const colors = [

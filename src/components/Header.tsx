@@ -87,7 +87,7 @@ export default function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 flex justify-between items-center px-6 py-3 mx-auto mt-4 max-w-6xl bg-gradient-to-r from-white/5 via-white/3 to-white/5 backdrop-blur-lg backdrop-saturate-150 rounded-full z-[60] border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-b before:from-white/10 before:to-transparent before:pointer-events-none"
+  className="fixed top-0 left-0 right-0 flex justify-between items-center px-6 py-3 mx-auto mt-4 max-w-6xl bg-transparent backdrop-blur-xl backdrop-saturate-150 rounded-xl z-[60] border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] transition-colors before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-b before:from-white/10 before:to-transparent before:pointer-events-none"
       initial={{ y: -30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}
@@ -131,7 +131,7 @@ export default function Header() {
         <a
           href="#contact"
           onClick={handleContactClick}
-          className="ml-4 px-4 py-1.5 text-sm bg-gradient-to-r from-purple-500/80 to-pink-500/80 backdrop-blur-sm text-white font-medium rounded-full transition-all duration-300 hover:shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:scale-105 cursor-pointer border border-white/20 hover:from-purple-500 hover:to-pink-500"
+          className="ml-4 px-4 py-1.5 text-sm bg-gradient-to-r from-purple-500/80 to-pink-500/80 backdrop-blur-sm text-white font-medium rounded-lg transition-all duration-300 hover:shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:scale-105 cursor-pointer border border-white/20 hover:from-purple-500 hover:to-pink-500"
         >
           Get In Touch
         </a>
@@ -140,7 +140,7 @@ export default function Header() {
       {/* Mobile menu button */}
       <div className="md:hidden">
         <button
-          className="p-1.5 text-white rounded-full bg-gradient-to-r from-white/8 to-white/5 backdrop-blur-sm border border-white/10 hover:from-white/15 hover:to-white/10 transition-all duration-300 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]"
+          className="p-1.5 text-white rounded-lg bg-white/10 backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-all duration-300 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -151,7 +151,7 @@ export default function Header() {
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <motion.div
-          className="absolute top-full left-0 right-0 bg-black/90 backdrop-blur-3xl backdrop-saturate-[300%] mt-4 p-4 rounded-2xl md:hidden border border-white/25 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)] before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-white/20 before:to-transparent before:pointer-events-none z-[60]"
+          className="absolute top-full left-0 right-0 bg-transparent backdrop-blur-3xl backdrop-saturate-[300%] mt-4 p-4 rounded-lg md:hidden border border-white/20 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)] before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-b before:from-white/10 before:to-transparent before:pointer-events-none z-[60]"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
