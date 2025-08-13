@@ -27,7 +27,7 @@ const FALLBACK_COLORS: Record<string, string> = {
   text: "#cdd6f4",
 };
 
-export default function DotsBackground() {
+export default function DotsBackground({ className = "" }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const colors = [
@@ -133,9 +133,7 @@ export default function DotsBackground() {
     const handleMouseMove = (e: MouseEvent) => {
       const mouseX = e.clientX;
       const mouseY = e.clientY;
-      animationFrameId = requestAnimationFrame(() =>
-        drawDots(mouseX, mouseY)
-      );
+      animationFrameId = requestAnimationFrame(() => drawDots(mouseX, mouseY));
     };
 
     drawDots();
@@ -153,7 +151,7 @@ export default function DotsBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-10 h-full w-full pointer-events-none"
+      className={`fixed inset-0 -z-10 h-full w-full pointer-events-none ${className}`}
     />
   );
 }
