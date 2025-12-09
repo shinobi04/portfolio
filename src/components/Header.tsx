@@ -8,12 +8,12 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
+const navItems = ["Home", "Projects", "Experience", "About"];
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
-
-  const navItems = ["Home", "Projects", "Experience", "About"];
 
   useEffect(() => {
     const handleScroll = () => {

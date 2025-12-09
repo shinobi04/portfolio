@@ -33,7 +33,7 @@ export default function Hero() {
           <p className="text-lg md:text-xl text-black max-w-2xl mb-12 font-medium leading-relaxed font-mono">
             I build pixel-perfect, engaging, and accessible digital experiences. 
             <br/>
-            <span className="text-sm text-gray-500 mt-2 block">/* Turning coffee into code since 2020 */</span>
+            <span className="text-sm text-gray-500 mt-2 block">{`/* Turning coffee into code since 2020 */`}</span>
           </p>
 
           {/* Social Links - Retro Buttons */}
