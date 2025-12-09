@@ -24,7 +24,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full py-8 mt-20 relative z-10">
+    <footer className="w-full py-8 mt-20 relative z-10 bg-retro-gray border-t-2 border-black">
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           className="flex flex-col items-center"
@@ -41,19 +41,14 @@ export default function Footer() {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 whileHover={{
                   scale: 1.2,
-                  color: ["#ffffff", "#a855f7", "#ec4899", "#ffffff"],
-                  transition: {
-                    duration: 0.8,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                  },
+                  rotate: 5,
                 }}
               >
                 <Link
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-purple-400 transition-colors duration-300"
+                  className="text-black hover:text-retro-accent transition-colors duration-300 p-2 border-2 border-black bg-white shadow-retro block"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -63,15 +58,15 @@ export default function Footer() {
           </div>
 
           <motion.div
-            className="border-t border-white/10 pt-6 w-full text-center"
+            className="border-t-2 border-black border-dashed pt-6 w-full text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-black font-mono font-bold">
               © {new Date().getFullYear()} Anurag. All rights reserved.
             </p>
-            <p className="text-xs text-gray-500 mt-2">
+            <p className="text-xs text-black/60 mt-2 font-mono">
               Built with Next.js & Framer Motion
             </p>
           </motion.div>

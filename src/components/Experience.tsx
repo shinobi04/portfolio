@@ -32,7 +32,7 @@ export default function Experience() {
         "Data Structures",
         "Algorithms",
       ],
-      color: "from-purple-500 to-indigo-600",
+      color: "bg-retro-accent",
     },
     {
       title: "Lovely Public School",
@@ -50,7 +50,7 @@ export default function Experience() {
         "Chemistry",
         "Python",
       ],
-      color: "from-blue-500 to-cyan-600",
+      color: "bg-retro-gray",
     },
   ];
 
@@ -73,10 +73,10 @@ export default function Experience() {
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text mb-4">
+        <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4 inline-block border-b-4 border-black pb-2">
           Education Journey
         </h2>
-        <p className="text-white/70 max-w-2xl mx-auto">
+        <p className="text-black/70 max-w-2xl mx-auto font-mono font-bold">
           Climbing through my academic path at USICT, Delhi
         </p>
       </motion.div>
@@ -91,7 +91,7 @@ export default function Experience() {
           viewport={{ once: true }}
           className="flex justify-center items-center mb-16 md:hidden"
         >
-          <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.5)] flex items-center justify-center">
+          <div className="w-8 h-8 bg-black rounded-full border-2 border-white shadow-retro flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 text-white"
@@ -105,7 +105,7 @@ export default function Experience() {
               />
             </svg>
           </div>
-          <span className="ml-2 text-green-400 font-medium">Academic</span>
+          <span className="ml-2 text-black font-bold font-mono">Academic</span>
         </motion.div>
 
         {/* Start flag - for desktop - moved to top */}
@@ -116,7 +116,7 @@ export default function Experience() {
           viewport={{ once: true }}
           className="hidden md:flex flex-col items-center mb-24"
         >
-          <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.5)] flex items-center justify-center">
+          <div className="w-10 h-10 bg-black rounded-full border-2 border-white shadow-retro flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 text-white"
@@ -130,14 +130,14 @@ export default function Experience() {
               />
             </svg>
           </div>
-          <span className="mt-3 text-green-400 font-medium text-lg">
+          <span className="mt-3 text-black font-bold font-mono text-lg">
             Academic Start
           </span>
         </motion.div>
 
         {/* Central vertical line - only visible on desktop, positioned lower to not connect with Academic Start */}
         <motion.div
-          className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-purple-500/50 to-pink-400/50 rounded-full hidden md:block"
+          className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-black hidden md:block"
           style={{ height: "calc(100% - 120px)", top: "120px" }}
           initial={{ height: 0 }}
           whileInView={{ height: "calc(100% - 120px)" }}
@@ -157,30 +157,30 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-purple-500/40 transition-all duration-300"
+                className="w-full bg-white border-2 border-black shadow-retro p-6 transition-all duration-300"
                 whileHover={{
                   y: -5,
-                  boxShadow: "0 10px 25px -5px rgba(168, 85, 247, 0.15)",
+                  boxShadow: "4px 4px 0px 0px rgba(0,0,0,1)",
                 }}
               >
                 {/* Level badge */}
-                <div className="absolute -top-3 left-6 px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-xs font-bold text-white">
+                <div className="absolute -top-3 left-6 px-3 py-1 bg-black border-2 border-white shadow-sm text-xs font-bold text-white font-mono">
                   Level {educationPath.length - index}
                 </div>
 
                 <div className="flex flex-col mb-4 mt-2">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-xl font-semibold text-white mb-1">
+                    <h3 className="text-xl font-bold text-black mb-1">
                       {edu.title}
                     </h3>
                     <button
                       onClick={() => toggleItem(index)}
-                      className="text-white/50 hover:text-white p-1"
+                      className="text-black hover:scale-110 transition-transform p-1 border-2 border-black bg-retro-gray"
                     >
                       {isExpanded ? (
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
+                          className="h-4 w-4"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                         >
@@ -193,7 +193,7 @@ export default function Experience() {
                       ) : (
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
+                          className="h-4 w-4"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                         >
@@ -207,11 +207,11 @@ export default function Experience() {
                     </button>
                   </div>
                   <p
-                    className={`bg-gradient-to-r ${edu.color} text-transparent bg-clip-text font-medium`}
+                    className={`font-bold font-mono text-black`}
                   >
                     {edu.institution}
                   </p>
-                  <p className="text-white/50 text-sm mt-1">{edu.duration}</p>
+                  <p className="text-black/60 text-sm mt-1 font-mono">{edu.duration}</p>
                 </div>
 
                 <motion.div
@@ -222,7 +222,7 @@ export default function Experience() {
                   }}
                   className="overflow-hidden"
                 >
-                  <ul className="list-none space-y-2 mb-4 text-white/80 pl-1">
+                  <ul className="list-none space-y-2 mb-4 text-black pl-1 font-medium">
                     {edu.description.map((item, i) => (
                       <motion.li
                         key={i}
@@ -235,7 +235,7 @@ export default function Experience() {
                         className="flex items-start"
                       >
                         <span
-                          className={`inline-block w-2 h-2 rounded-full bg-gradient-to-r ${edu.color} mt-1.5 mr-2`}
+                          className={`inline-block w-2 h-2 border border-black bg-black mt-1.5 mr-2`}
                         ></span>
                         {item}
                       </motion.li>
@@ -252,9 +252,7 @@ export default function Experience() {
                           scale: isExpanded ? 1 : 0.8,
                         }}
                         transition={{ duration: 0.2, delay: 0.3 + i * 0.05 }}
-                        className={`px-3 py-1 text-xs rounded-full bg-gradient-to-r ${edu.color
-                          .replace("500", "500/20")
-                          .replace("600", "600/20")} text-white`}
+                        className={`px-3 py-1 text-xs font-bold border border-black bg-retro-gray text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}
                       >
                         {skill}
                       </motion.span>
@@ -283,14 +281,14 @@ export default function Experience() {
                   className={`absolute top-3 ${
                     isEven ? "right-1/2" : "left-1/2"
                   } h-0.5 w-[15%] 
-                  origin-${isEven ? "right" : "left"} bg-white/40`}
+                  origin-${isEven ? "right" : "left"} bg-black`}
                 >
                   {/* Arrow tip */}
                   <div
                     className={`absolute top-1/2 -translate-y-1/2 ${
                       isEven ? "right-0" : "left-0"
                     } 
-                    w-2 h-2 border-t border-r border-white/40 
+                    w-2 h-2 border-t-2 border-r-2 border-black 
                     transform ${isEven ? "-rotate-45" : "135deg"}`}
                   ></div>
                 </motion.div>
@@ -301,8 +299,8 @@ export default function Experience() {
                   whileInView={{ scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r ${edu.color} z-10 
-                    shadow-[0_0_15px_rgba(168,85,247,0.5)] cursor-pointer`}
+                  className={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-white border-2 border-black z-10 
+                    shadow-[0_0_0_4px_rgba(255,255,255,1)] cursor-pointer hover:bg-black transition-colors`}
                   onClick={() => toggleItem(index)}
                   whileHover={{ scale: 1.2 }}
                 />
@@ -310,7 +308,7 @@ export default function Experience() {
                 {/* Education card */}
                 <motion.div
                   className={`w-5/12 ${isEven ? "mr-auto" : "ml-auto"} 
-                    relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-purple-500/40 
+                    relative bg-white border-2 border-black shadow-retro p-6 
                     transition-all duration-300`}
                   initial={{
                     opacity: 0,
@@ -324,26 +322,26 @@ export default function Experience() {
                   viewport={{ once: true }}
                   whileHover={{
                     y: -5,
-                    boxShadow: "0 10px 25px -5px rgba(168, 85, 247, 0.15)",
+                    boxShadow: "8px 8px 0px 0px rgba(0,0,0,1)",
                   }}
                 >
                   {/* Level badge */}
-                  <div className="absolute -top-3 left-6 px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-xs font-bold text-white">
+                  <div className="absolute -top-3 left-6 px-3 py-1 bg-black border-2 border-white shadow-sm text-xs font-bold text-white font-mono">
                     Level {educationPath.length - index}
                   </div>
 
                   <div className="flex flex-col mb-4 mt-2">
                     <div className="flex justify-between items-center">
-                      <h3 className="text-xl font-semibold text-white mb-1">
+                      <h3 className="text-xl font-bold text-black mb-1">
                         {edu.title}
                       </h3>
                     </div>
                     <p
-                      className={`bg-gradient-to-r ${edu.color} text-transparent bg-clip-text font-medium`}
+                      className={`font-bold font-mono text-black`}
                     >
                       {edu.institution}
                     </p>
-                    <p className="text-white/50 text-sm mt-1">{edu.duration}</p>
+                    <p className="text-black/60 text-sm mt-1 font-mono">{edu.duration}</p>
                   </div>
 
                   <motion.div
@@ -354,7 +352,7 @@ export default function Experience() {
                     }}
                     className="overflow-hidden"
                   >
-                    <ul className="list-none space-y-2 mb-4 text-white/80 pl-1">
+                    <ul className="list-none space-y-2 mb-4 text-black pl-1 font-medium">
                       {edu.description.map((item, i) => (
                         <motion.li
                           key={i}
@@ -367,7 +365,7 @@ export default function Experience() {
                           className="flex items-start"
                         >
                           <span
-                            className={`inline-block w-2 h-2 rounded-full bg-gradient-to-r ${edu.color} mt-1.5 mr-2`}
+                            className={`inline-block w-2 h-2 border border-black bg-black mt-1.5 mr-2`}
                           ></span>
                           {item}
                         </motion.li>
@@ -384,9 +382,7 @@ export default function Experience() {
                             scale: isExpanded ? 1 : 0.8,
                           }}
                           transition={{ duration: 0.2, delay: 0.3 + i * 0.05 }}
-                          className={`px-3 py-1 text-xs rounded-full bg-gradient-to-r ${edu.color
-                            .replace("500", "500/20")
-                            .replace("600", "600/20")} text-white`}
+                          className={`px-3 py-1 text-xs font-bold border border-black bg-retro-gray text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}
                         >
                           {skill}
                         </motion.span>

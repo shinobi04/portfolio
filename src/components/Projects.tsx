@@ -72,10 +72,10 @@ export default function Projects() {
         viewport={{ once: true }}
         className="text-center mb-12"
       >
-        <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text mb-4">
+        <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4 inline-block border-b-4 border-black pb-2">
           My Projects
         </h2>
-        <p className="text-white/80 max-w-2xl mx-auto">
+        <p className="text-black/80 max-w-2xl mx-auto font-mono font-bold">
           Explore my recent GitHub projects. These repositories showcase my
           skills, interests and the technologies I&apos;ve been working with
           recently.
@@ -84,15 +84,15 @@ export default function Projects() {
 
       {isLoading && (
         <div className="flex justify-center items-center py-20">
-          <div className="w-12 h-12 rounded-full border-4 border-t-purple-500 border-r-transparent border-b-pink-500 border-l-transparent animate-spin"></div>
+          <div className="w-12 h-12 border-4 border-black border-t-transparent animate-spin rounded-full"></div>
         </div>
       )}
 
       {error && (
-        <div className="text-center text-red-400 py-10">
+        <div className="text-center text-red-600 py-10 font-bold font-mono">
           <p>{error}</p>
           <button
-            className="mt-4 px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-medium"
+            className="mt-4 px-6 py-2 bg-retro-accent border-2 border-black shadow-retro hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
             onClick={() => window.location.reload()}
           >
             Try Again
@@ -109,74 +109,84 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-black/30 backdrop-blur-md p-6 rounded-xl border border-white/10 flex flex-col h-full hover:border-purple-500/50 transition-all"
+              className="bg-white border-2 border-black shadow-retro p-0 flex flex-col h-full hover:-translate-y-1 hover:shadow-retro-lg transition-all duration-200"
             >
-              <h3 className="text-xl font-semibold mb-3 text-white">
-                {repo.name}
-              </h3>
+              <div className="bg-retro-gray border-b-2 border-black px-4 py-2 flex justify-between items-center">
+                 <span className="font-mono text-xs font-bold truncate max-w-[70%]">{repo.name}</span>
+                 <div className="flex space-x-1">
+                    <div className="w-2 h-2 rounded-full border border-black bg-white"></div>
+                    <div className="w-2 h-2 rounded-full border border-black bg-white"></div>
+                 </div>
+              </div>
+              
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold mb-3 text-black truncate">
+                    {repo.name}
+                </h3>
 
-              <p className="text-white/70 mb-4 flex-grow">
-                {repo.description || "No description provided"}
-              </p>
+                <p className="text-black/80 mb-4 flex-grow font-medium text-sm line-clamp-3">
+                    {repo.description || "No description provided"}
+                </p>
 
-              {/* Language indicator */}
-              {repo.language && (
-                <div className="flex items-center mb-3">
-                  <span
-                    className={`h-3 w-3 rounded-full mr-2 ${
-                      languageColors[repo.language] || "bg-gray-400"
-                    }`}
-                  ></span>
-                  <span className="text-sm text-white/60">{repo.language}</span>
-                </div>
-              )}
-
-              {/* Topics/tags */}
-              {repo.topics && repo.topics.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {repo.topics.slice(0, 3).map((topic) => (
+                {/* Language indicator */}
+                {repo.language && (
+                    <div className="flex items-center mb-3 border-2 border-black bg-retro-accent px-2 py-1 w-fit">
                     <span
-                      key={topic}
-                      className="px-2 py-1 text-xs bg-purple-900/30 text-purple-300 rounded-full"
-                    >
-                      {topic}
+                        className={`h-3 w-3 border border-black mr-2 ${
+                        languageColors[repo.language] || "bg-gray-400"
+                        }`}
+                    ></span>
+                    <span className="text-xs font-bold font-mono text-black">{repo.language}</span>
+                    </div>
+                )}
+
+                {/* Topics/tags */}
+                {repo.topics && repo.topics.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-4">
+                    {repo.topics.slice(0, 3).map((topic) => (
+                        <span
+                        key={topic}
+                        className="px-2 py-1 text-xs font-bold border border-black bg-white text-black"
+                        >
+                        #{topic}
+                        </span>
+                    ))}
+                    </div>
+                )}
+
+                <div className="flex justify-between items-center mt-auto pt-4 border-t-2 border-black border-dashed">
+                    <div className="flex space-x-3 font-mono text-xs font-bold">
+                    <span className="flex items-center text-black">
+                        <FaStar className="mr-1" />
+                        {repo.stargazers_count}
                     </span>
-                  ))}
-                </div>
-              )}
+                    <span className="flex items-center text-black">
+                        <FaCodeBranch className="mr-1" />
+                        {repo.forks_count}
+                    </span>
+                    </div>
 
-              <div className="flex justify-between items-center mt-auto pt-4 border-t border-white/10">
-                <div className="flex space-x-3">
-                  <span className="flex items-center text-white/60 text-sm">
-                    <FaStar className="mr-1 text-yellow-400" />
-                    {repo.stargazers_count}
-                  </span>
-                  <span className="flex items-center text-white/60 text-sm">
-                    <FaCodeBranch className="mr-1" />
-                    {repo.forks_count}
-                  </span>
-                </div>
-
-                <div className="flex space-x-3">
-                  <a
-                    href={repo.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/80 hover:text-purple-400 transition-colors"
-                  >
-                    <FaGithub size={20} />
-                  </a>
-
-                  {repo.homepage && (
+                    <div className="flex space-x-3">
                     <a
-                      href={repo.homepage}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white/80 hover:text-purple-400 transition-colors"
+                        href={repo.html_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-black hover:scale-110 transition-transform"
                     >
-                      <FaExternalLinkAlt size={18} />
+                        <FaGithub size={20} />
                     </a>
-                  )}
+
+                    {repo.homepage && (
+                        <a
+                        href={repo.homepage}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-black hover:scale-110 transition-transform"
+                        >
+                        <FaExternalLinkAlt size={18} />
+                        </a>
+                    )}
+                    </div>
                 </div>
               </div>
             </motion.div>
@@ -189,7 +199,7 @@ export default function Projects() {
           href="https://github.com/shinobi04"
           target="_blank"
           rel="noopener noreferrer"
-          className="relative z-10 inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-full transition-all hover:shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:scale-105"
+          className="relative z-10 inline-flex items-center px-8 py-3 bg-white border-2 border-black shadow-retro text-black font-bold font-mono hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-[4px] active:translate-y-[4px] transition-all"
         >
           <FaGithub className="mr-2" /> View More on GitHub
         </a>

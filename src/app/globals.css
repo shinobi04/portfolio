@@ -4,11 +4,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0510;
-  --foreground: #171717;
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 10, 5, 16;
-  --background-end-rgb: 8, 3, 12;
+  --background: #ffffff;
+  --foreground: #000000;
 }
 
 @theme inline {
@@ -18,89 +15,49 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0510;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+  color: var(--foreground);
+  background-color: var(--background);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
-  font-family: "Inter", sans-serif;
+  font-family: "Geneva", "Verdana", var(--font-sans), sans-serif;
+}
+
+/* Retro Scrollbar */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-left: 2px solid #000000;
+  background-image: radial-gradient(#000000 1px, transparent 0);
+  background-size: 4px 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: inset 2px 2px 0px 0px #ffffff, inset -2px -2px 0px 0px #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
 }
 
 @layer utilities {
-  .bg-blobs {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: 0;
+  .retro-border {
+    @apply border-2 border-black;
+  }
+  
+  .retro-shadow {
+    @apply shadow-[4px_4px_0px_0px_rgba(0,0,0,1)];
   }
 
-  .blob {
-    position: absolute;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(
-      circle,
-      rgba(255, 0, 200, 0.3),
-      transparent 70%
-    );
-    filter: blur(80px);
-    border-radius: 50%;
-    z-index: 0;
-    animation: float 18s ease-in-out infinite;
-    opacity: 0.4;
-  }
-
-  @keyframes float {
-    0% {
-      transform: translateY(0px) scale(1);
-    }
-    50% {
-      transform: translateY(-30px) scale(1.05);
-    }
-    100% {
-      transform: translateY(0px) scale(1);
-    }
-  }
-
-  @keyframes fadeSlideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes rotateGlow {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  .retro-card {
+    @apply bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)];
   }
 }
